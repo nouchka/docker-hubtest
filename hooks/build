@@ -9,6 +9,15 @@ fi
 if [ "$DOCKER_TAG" = "latest" ]; then
 	docker build -t ${IMAGE_NAME} .
 else
-	## Fail if missing docker file
-	docker build -t ${IMAGE_NAME} -f Dockerfile.${DOCKER_TAG} .
+	if [ -f "Dockerfile.${DOCKER_TAG}" ]; then
+		docker build -t ${IMAGE_NAME} -f Dockerfile.${DOCKER_TAG} .
+	else
+		if [ "$DOCKER_TAG" = "6" ]; then
+			docker build -t ${IMAGE_NAME} \
+				--build-arg=BASE_IMAGE=stretch \
+				--build-arg=PHPVERSION=7 \
+				--build-arg=PHPCONF=/etc/php/7.0 \
+				.
+		fi
+	fi
 fi

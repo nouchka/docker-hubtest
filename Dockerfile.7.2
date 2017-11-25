@@ -1,5 +1,8 @@
 ARG  BASE_IMAGE=buster
 FROM debian:${BASE_IMAGE}
 
-RUN echo 7.2
+ARG PHPVERSION=7.2
+ARG PHPCONF=/etc/php/7.0
+
+RUN echo $PHPVERSION $PHPCONF
 RUN cat /etc/debian_version
