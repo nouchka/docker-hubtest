@@ -1,5 +1,5 @@
-ARG  BASE_IMAGE=stable
+ARG  BASE_IMAGE=buster
 FROM debian:${BASE_IMAGE}
 
-RUN echo 5
+RUN echo 7.2
 RUN cat /etc/debian_version

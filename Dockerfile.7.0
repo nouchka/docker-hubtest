@@ -1,3 +1,5 @@
-FROM debian:stable
+ARG  BASE_IMAGE=stretch
+FROM debian:${BASE_IMAGE}
 
 RUN echo 7.0
+RUN cat /etc/debian_version
