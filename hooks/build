@@ -18,11 +18,6 @@ else
 				--build-arg=PHPVERSION=7 \
 				--build-arg=PHPCONF=/etc/php/7.0 \
 				.
-			docker build -t ${DOCKER_REPO}:6.1 \
-				--build-arg=BASE_IMAGE=stretch \
-				--build-arg=PHPVERSION=7 \
-				--build-arg=PHPCONF=/etc/php/7.0 \
-				.
 		fi
 	fi
 fi
