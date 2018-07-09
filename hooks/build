@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+printenv
+
 LATEST_VERSION="5"
 
 if [ "$DOCKER_TAG" = "$LATEST_VERSION" ]; then
